@@ -11,7 +11,7 @@ import Developer from "./components/Developer"
 const hero = () => {
     return (
         <section>
-            {/* section atas */}
+            {/* section atas aseli */}
             <div className='bg-gradient-to-b from-secondary rounded-lg w-full'>
                 <div className='flex justify-center py-52 '>
                     <div className='flex flex-col text-center justify-center'>
@@ -59,7 +59,7 @@ const hero = () => {
                     </div>
                 </div>
             </div>
-            {/* section isi */}
+            {/* section isi aseli */}
             <div className='p-24'>
                 <div className="flex flex-col gap-3">
                     <p className="text-8xl font-bold">Eksplorasi

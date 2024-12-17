@@ -30,7 +30,7 @@ const Developer = () => {
             <img className="rounded-t-lg object-cover object-top w-full max-h-64" src={el.img} alt="" />
         </div>
         <div className="p-4">
-            <h3 className="text-lg font-bold">Judul Aseli</h3>
+            <h3 className="text-lg font-bold">Nama Pengguna</h3>
             <p className="text-gray-600 text-sm mb-2">SubJudul</p>
             <p className="text-gray-500 text-sm mb-4">Lorem Ipsum Hitam Dolor Sit Amet Alhamdulillah</p>
             <p className="text-sm font-semibold mb-2">Title</p>
