@@ -13,7 +13,7 @@ export const menu =[
     },
     {
         label: 'Event',
-        url: '#'
+        url: '/event'
     },
     {
         label: 'Product',

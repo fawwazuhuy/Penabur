@@ -1,20 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { BiExpandHorizontal } from "react-icons/bi"
 import { list } from "@data/carausel"
-// import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import Activity from "./components/Activity"
+import Developer from "./components/Developer"
+
 
 const hero = () => {
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-    };
     return (
         <section>
             {/* section atas */}
@@ -74,27 +68,13 @@ const hero = () => {
                         <p className="font-medium text-2xl mt-3">Lorem Ipsum has been the industry`s standard</p>
                         <Link href="#" className='rounded-md text-secondary bg-primary p-4 hover:drop-shadow-xl'>Explore More</Link>
                     </div>
-                    <div className='flex flex-row justify-between mt-10'>
+                    <div className='flex flex-row justify-between mt-10 h-[300px]'>
                         <div className='text-center justify-center flex mx-auto'>
                             <p className="font-bold text-lg mt-3">Activity</p>
                         </div>
-                        <div className='w-3/4'>
+                        <div className='w-3/4 h-[250px]'>
                             {/* <Slider {...settings}> */}
-                            <div className='flex gap-5'>
-                                {list.map((el, i) => (
-                                    <div className="max-w-xl bg-white border border-gray-200 rounded-lg shadow">
-                                        <a href="#">
-                                            <img className="rounded-t-lg object-cover w-full max-h-32" src={el.img} alt="" />
-                                        </a>
-                                        <div className="p-5">
-                                            <a href="#">
-                                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{el.title}</h5>
-                                            </a>
-                                            <p className="mb-3 font-normal text-gray-700 ">{el.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                            <Activity/>
                             {/* </Slider> */}
                         </div>
                     </div>
@@ -140,10 +120,13 @@ const hero = () => {
                     </div>
                 </div>
                 <div className='p-24 mt-32'>
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-3 mb-32">
                         <p className="text-8xl font-bold">Top
                             <br />Developer Kami</p>
                         <p className="font-medium text-2xl mt-3">Lorem Ipsum has been the industry`s standard</p>
+                    </div>
+                    <div className="flex flex-wrap gap-3 justify-center">
+                        <Developer/>
                     </div>
                 </div>
             </div>
@@ -152,3 +135,5 @@ const hero = () => {
 }
 
 export default hero
+
+
