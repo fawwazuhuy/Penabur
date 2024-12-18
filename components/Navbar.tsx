@@ -17,8 +17,8 @@ const Navbar = () => {
         })}
       </div>
       <div className='flex gap-3 font-bold'>
-        <Link href="#" className='rounded-md text-secondary bg-primary p-4 hover:drop-shadow-xl'>Sign in</Link>
-        <Link href="#" className='rounded-md text-primary bg-secondary p-4 hover:drop-shadow-xl'>Login</Link>
+        <Link href="/LoginRegister/Register" className='rounded-md text-secondary bg-primary p-4 hover:drop-shadow-xl'>Sign in</Link>
+        <Link href="/LoginRegister/Login" className='rounded-md text-primary bg-secondary p-4 hover:drop-shadow-xl'>Login</Link>
       </div>
     </div>
   )
