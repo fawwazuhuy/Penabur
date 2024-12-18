@@ -1,14 +1,14 @@
 "use client";
 import { getEvent } from '@lib/api';
 import { useQuery } from "@tanstack/react-query";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useState } from 'react';
+// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+// import { useState } from 'react';
 
 export default function EventDetails() {
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ["events"], // Unique key for this query
-    queryFn: getEvent, // API function
-    refetchInterval: 5000, // Refetch data every 5 seconds
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["events"], 
+    queryFn: getEvent, 
+    refetchInterval: 5000, 
   });
 
   if (isLoading) {
@@ -19,14 +19,13 @@ export default function EventDetails() {
     return <p>Error: {error.message}</p>;
   }
 
-  const events = data.data; // Assuming the API returns an array of events
-  // const [queryClient] = useState(() => new QueryClient());
+  const events = data.data; 
 
   return (
     // <QueryClientProvider client={queryClient}>
     <div className='grid grid-cols-3 gap-5 gap-y-10'>
-          {events.map((event: any) => (            
-            <div key={event.id} className="bg-white border rounded-lg shadow">
+          {events.map((event,i) => (            
+            <div key={event.id || i} className="bg-white border rounded-lg shadow">
               <div className="h-64 bg-gray-300 rounded-t-lg">
                   <img className="rounded-t-lg object-cover object-top w-full max-h-64" src="./SHIINAMAHIRU(1).Jpeg" alt="" />
               </div>

@@ -16,11 +16,7 @@ export const menu =[
         url: '/event'
     },
     {
-        label: 'Product',
-        url: '#'
-    },
-    {
-        label: 'bebek',
-        url: '#'
+        label: 'Program',
+        url: '/program'
     },
 ]
