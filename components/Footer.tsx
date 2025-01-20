@@ -15,10 +15,11 @@ const Footer = () => {
             <p className='text-sm'>Branding</p>
         </div>
         <div className='flex flex-col'>
-            <p className='text-sm Text-primary'>Lorem</p>
+            <p className='text-sm text-primary'>Lorem</p>
             <p className='text-sm'>Ipsum</p>
             <p className='text-sm'>Dolor</p>
             <p className='text-sm'>Sit</p>
+            {/* <p className='text-sm'>eko</p> */}
         </div>
         <div className='flex flex-col'>
             <p className='text-sm text-primary'>Follow us</p>

@@ -18,3 +18,4 @@ const NavbarWrapper = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default NavbarWrapper;
+  

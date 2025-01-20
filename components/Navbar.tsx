@@ -7,7 +7,8 @@ import { menu } from "@data/menu"
  
 const Navbar = () => {
   return (
-    <div className='py-4 flex justify-between items-center'>
+    <div className='py-4 flex justify-between items-center pr-10 pl-10'>
+      
       <Image src={logo} alt='logo'/>
       <div className='flex gap-10'>
         {menu.map((item, i) => {

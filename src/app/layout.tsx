@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="drop-shadow-xl px-10">
+        <div className="drop-shadow-xl">
           <NavbarWrapper>{children}</NavbarWrapper>
         </div>
       </body>

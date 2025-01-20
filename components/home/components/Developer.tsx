@@ -1,7 +1,9 @@
 'use client'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { list } from "@data/carausel"
+// import { list } from "@data/carausel"
+import { useQuery } from "@tanstack/react-query";
+import { getUser } from "@lib/api"
 
 // Import Swiper styles
 import 'swiper/css';
@@ -11,6 +13,22 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 
 const Developer = () => {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ["users"], 
+        queryFn: getUser, 
+        refetchInterval: 5000, 
+      });
+    
+      if (isLoading) {
+        return <p>Loading...</p>;
+      }
+    
+      if (error instanceof Error) {
+        return <p>Error: {error.message}</p>;
+      }
+
+      const users = data.data; 
+
   return (
     <Swiper
         spaceBetween={50}
@@ -24,21 +42,18 @@ const Developer = () => {
         onSwiper={(swiper) => console.log(swiper)}
         centeredSlides = {true}
     >
-    {list.map((el, i) => (
+    {users.map((el, i) => (
     <SwiperSlide key={el.id || i} className="w-[300] bg-white border rounded-lg shadow">
         <div className="h-64 bg-gray-300 rounded-t-lg">
-            <img className="rounded-t-lg object-cover object-top w-full max-h-64" src={el.img} alt="" />
+            <img className="rounded-t-lg object-cover object-top w-full max-h-64" src={el.photo || "image.png"} alt="" />
         </div>
         <div className="p-4">
-            <h3 className="text-lg font-bold">Nama Pengguna</h3>
-            <p className="text-gray-600 text-sm mb-2">SubJudul</p>
-            <p className="text-gray-500 text-sm mb-4">Lorem Ipsum Hitam Dolor Sit Amet Alhamdulillah</p>
+            <h3 className="text-lg font-bold">{el.name}</h3>
+            <p className="text-gray-600 text-sm mb-2">{el.email}</p>
+            <p className="text-gray-500 text-sm mb-4">{el.bio}</p>
             <p className="text-sm font-semibold mb-2">Title</p>
             <div className="flex flex-wrap gap-2 mb-4">
-                <span className="text-xs bg-gray-100 border border-gray-300 rounded-full px-2 py-1">UI/UX</span>
-                <span className="text-xs bg-gray-100 border border-gray-300 rounded-full px-2 py-1">FullStack</span>
-                <span className="text-xs bg-gray-100 border border-gray-300 rounded-full px-2 py-1">Cloud</span>
-                <span className="text-xs bg-gray-100 border border-gray-300 rounded-full px-2 py-1">Lorem</span>
+                <span className="text-xs bg-gray-100 border border-gray-300 rounded-full px-2 py-1">{el.tags || "_Blank"}</span>
             </div>   
             <button className="w-full bg-green-500 hover:bg-green-600 text-white text-sm font-medium py-2 rounded">
                 Ini Tombol

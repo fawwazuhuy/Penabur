@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Link from 'next/link'
 import { BiExpandHorizontal } from "react-icons/bi"
@@ -6,11 +7,14 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Activity from "./components/Activity"
 import Developer from "./components/Developer"
-
+import { useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const hero = () => {
+    const [queryClient] = useState(() => new QueryClient());
     return (
-        <section>
+        <QueryClientProvider client={queryClient}>
+        <section className='p-5'>
             {/* section atas aseli */}
             <div className='bg-gradient-to-b from-secondary rounded-lg w-full'>
                 <div className='flex justify-center py-52 '>
@@ -18,8 +22,8 @@ const hero = () => {
                         <h1 className='text-8xl font-bold mb-20'>Tempat Berkumpul IT<br />Komunitas Penabur</h1>
                         <p className='font-medium text-2xl'>Penabur Dev merupakan komunitas IT yang berdomisili di Kota Pochinki </p>
                         <div className='flex gap-3 font-bold mt-20 justify-center'>
-                            <Link href="#" className='rounded-3xl text-secondary bg-primary p-4 hover:drop-shadow-xl'>Lorem Ipsum</Link>
-                            <Link href="#" className='rounded-3xl text-primary bg-white p-4 hover:drop-shadow-xl'>Lorem Ipsum</Link>
+                            <Link href="#" className='rounded-3xl text-secondary bg-primary p-4 hover:drop-shadow-xl'>Get Start</Link>
+                            <Link href="#" className='rounded-3xl text-primary bg-white p-4 hover:drop-shadow-xl'>More</Link>
                         </div>
                         <div className='mt-52 w-full'>
                             <p className='font-medium text-xl' >Trusted By</p>
@@ -88,7 +92,7 @@ const hero = () => {
                     <div className='grid grid-cols-2 gap-4 mt-20 p-5'>
                         <div className='p-20 flex flex-col'>
                             <div className='rounded-xl bg-black p-5'>
-                                <img src="#" alt="email" />
+                                <img src="Email (1).png" alt="email" />
                                 <p className='font-bold  text-2xl text-white'>Constructive and Destructive waves</p>
                                 <p className='text-lg text-white'>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.</p>
                             </div>
@@ -103,7 +107,7 @@ const hero = () => {
                             </div>
                         </div>
                         <div className="relative w-full">
-                            <img src="shiina.jpg" alt="Image" className="w-full h-90% object-cover rounded-xl aspect-square" />
+                            <img src="image.png" alt="Image" className="w-full h-90% object-cover rounded-xl aspect-square" />
                             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black text-white p-2 rounded-b-xl">
                                 <div className='flex gap-4'>
                                     <div className='flex justify-center items-center align-center p-5'>
@@ -131,6 +135,8 @@ const hero = () => {
                 </div>
             </div>
         </section>
+        </QueryClientProvider>
+        
     )
 }
 
