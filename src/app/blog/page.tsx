@@ -6,7 +6,7 @@ import React from 'react'
 // import { list } from "@data/carausel"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import Form from "./components/form"
+import Form from "./components/Form"
 
 const Blog = () => {
   const [queryClient] = useState(() => new QueryClient());

@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import EventDetails from "./EventDetails"
 
-const event = () => {
+const Event = () => {
     const [queryClient] = useState(() => new QueryClient());
 
   return (
@@ -37,4 +37,4 @@ const event = () => {
   )
 }
 
-export default event
+export default Event

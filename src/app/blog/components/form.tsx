@@ -1,21 +1,28 @@
 "use client";
 import { getBlog, getUser } from '@lib/api';
 import { useQuery } from "@tanstack/react-query";
-// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-// import { useState } from 'react';
 
-export default function form() {
+export default function Form() {
   const { data: blog, isLoading: blogsLoading, error: blogsError } = useQuery({ queryKey: ["blogs"], queryFn: getBlog, refetchInterval: 5000, });
   const { data: user, isLoading: usersLoading, error: usersError } = useQuery({ queryKey: ["users"], queryFn: getUser, refetchInterval: 5000, });
   
   if (blogsLoading || usersLoading) return <div>Loading...</div>;
   if (blogsError || usersError) return <div>Error fetching data</div>;
   
+  interface Blog {
+    id: number; user_id: number; status: string; sort: number; title: string; content: string;
+  }
+
+  interface User {
+    id: number; status: string; name: string; email: string; role: string; password: string;
+  }
+
   const blogs = blog.data; 
   const users = user.data; 
 
-const blogdata = blogs.map(blog => {
-    const user = users.find(user => user.id === blog.user_id);
+const blogdata = blogs.map((blog: Blog) => {
+    const user = users.find((user: User) => user.id === blog.user_id);
+
     return {
       ...blog,
       user_name: user ? user.name : 'Unknown',
@@ -25,7 +32,7 @@ const blogdata = blogs.map(blog => {
     
   return (
     <div className='grid grid-cols-3 gap-y-10'>
-        {blogdata.map((blog,i) => (        
+        {blogdata.map((blog : {id: number; img: string; user_name: string; user_email: string; title: string;},i: number) => (        
         <div key={blog.id || i} className="rounded-lg border bg-white shadow-md max-w-md">
             <div className="p-3 flex items-center space-x-3">
                 <img src={blog.img || "SHIINAMAHIRU(2).jpeg"} alt="Profile Picture" className="w-10 h-10 rounded-full"/>

@@ -7,10 +7,6 @@ import { getUser } from "@lib/api"
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-import { Pagination, Navigation } from 'swiper/modules';
 
 const Developer = () => {
     const { data, isLoading, error } = useQuery({
@@ -42,7 +38,7 @@ const Developer = () => {
         onSwiper={(swiper) => console.log(swiper)}
         centeredSlides = {true}
     >
-    {users.map((el, i) => (
+    {users.map((el: {id: number; photo: string; name: string; email: string; bio: string; tags: string;}, i: number) => (
     <SwiperSlide key={el.id || i} className="w-[300] bg-white border rounded-lg shadow">
         <div className="h-64 bg-gray-300 rounded-t-lg">
             <img className="rounded-t-lg object-cover object-top w-full max-h-64" src={el.photo || "image.png"} alt="" />

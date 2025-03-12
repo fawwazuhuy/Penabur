@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Form from "./components/form"
 
-const program = () => {
+const Program = () => {
     const [queryClient] = useState(() => new QueryClient());
 
   return (
@@ -37,4 +37,4 @@ const program = () => {
   )
 }
 
-export default program
+export default Program

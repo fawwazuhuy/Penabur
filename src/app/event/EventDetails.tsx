@@ -27,7 +27,7 @@ export default function EventDetails() {
 
   const events = data?.data || [];
 
-  const filteredData = events.filter((event: any) =>
+  const filteredData = events.filter((event: {id: number; img: string; event: string; address: string; price: string}) =>
     `${event.event ?? ""} ${event.price ?? ""} ${event.address ?? ""}`
       .toLowerCase()
       .includes(searchTerm.toLowerCase())
@@ -56,7 +56,7 @@ export default function EventDetails() {
       </div>
 
       <div className='grid grid-cols-3 gap-5 gap-y-10'>
-        {filteredData.map((event, i) => (
+        {filteredData.map((event: {id: number; img: string; event: string; address: string; price: string}, i: number) => (
           <div key={event.id || i} className="bg-white border rounded-lg shadow">
             <div className="h-64 bg-gray-300 rounded-t-lg">
               <img className="rounded-t-lg object-cover object-top w-full max-h-64" src={event.img || "image.png"} alt="" />

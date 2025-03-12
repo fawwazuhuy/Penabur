@@ -2,7 +2,6 @@
 import React from 'react'
 import Link from 'next/link'
 import { BiExpandHorizontal } from "react-icons/bi"
-import { list } from "@data/carausel"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Activity from "./components/Activity"
@@ -10,7 +9,7 @@ import Developer from "./components/Developer"
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const hero = () => {
+const Hero = () => {
     const [queryClient] = useState(() => new QueryClient());
     return (
         <QueryClientProvider client={queryClient}>
@@ -140,6 +139,6 @@ const hero = () => {
     )
 }
 
-export default hero
+export default Hero
 
 
