@@ -2,11 +2,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from 'react';
 import React from 'react';
-// import Link from 'next/link'
-// import { list } from "@data/carausel"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Form from "./components/Form";
+import Form from "./components/Ayam";
 
 const Blog = () => {
   const [queryClient] = useState(() => new QueryClient());

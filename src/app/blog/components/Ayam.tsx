@@ -2,7 +2,7 @@
 import { getBlog, getUser } from '@lib/api';
 import { useQuery } from "@tanstack/react-query";
 
-export default function Form() {
+export default function Ayam() {
   const { data: blog, isLoading: blogsLoading, error: blogsError } = useQuery({ queryKey: ["blogs"], queryFn: getBlog, refetchInterval: 5000, });
   const { data: user, isLoading: usersLoading, error: usersError } = useQuery({ queryKey: ["users"], queryFn: getUser, refetchInterval: 5000, });
   
