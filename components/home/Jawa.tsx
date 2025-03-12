@@ -9,7 +9,7 @@ import Developer from "./components/Developer"
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-const Hero = () => {
+const Jawa = () => {
     const [queryClient] = useState(() => new QueryClient());
     return (
         <QueryClientProvider client={queryClient}>
@@ -139,6 +139,6 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default Jawa
 
 
